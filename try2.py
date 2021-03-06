@@ -5,6 +5,21 @@ from reportlab.lib.units import mm, inch
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 
+import xlrd
+
+# excel inputs
+# extract a particular row value
+
+loc = ("tc_input.xls")
+
+wb = xlrd.open_workbook(loc)
+sheet = wb.sheet_by_index(0)
+
+sheet.cell_value(0, 0)
+
+print(sheet.row_values(1))
+
+
 
 pdf = canvas.Canvas('tc.pdf',pagesize=letter)
 pdf.setTitle('serial no')
@@ -70,6 +85,52 @@ pdf.drawString(24,520,'''   Most BackwardClass / Denotified Tribes''')
 pdf.drawString(300,522,'''      No''')
 pdf.drawString(300,520,''': …………………………………………………………..''')
 
+pdf.drawString(24,495,'''5. Sex''')
+pdf.drawString(300,495,''': …………………………………………………………..''')
+
+pdf.drawString(24,470,'''6. Date of Birth as entered in the admission
+Register ''')
+pdf.drawString(24,455,'''   in figures and words''')
+pdf.drawString(300,455,''': …………………………………………………………..''')
+
+pdf.drawString(24,430,'''7. Personal marks of Identification''')
+pdf.drawString(300,430,''': …………………………………………………………..''')
+
+pdf.drawString(24,405,'''8. Date of admission and course in which''')
+pdf.drawString(24,390,'''   Admitted (the year to be entered in words)''')
+pdf.drawString(300,390,''': …………………………………………………………..''')
+
+pdf.drawString(24,365,'''9. a.) Class in which the Student was studying at''')
+pdf.drawString(24,350,'''   the time of leaving(in words)''')
+pdf.drawString(300,350,''': …………………………………………………………..''')
+pdf.drawString(24,333,'''   b.)  Course offered''')
+pdf.drawString(300,333,''': …………………………………………………………..''')
+pdf.drawString(24,315,'''   c.)  Medium of Study''')
+pdf.drawString(300,315,''': …………………………………………………………..''')
+
+pdf.drawString(24,295,'''10. Whether qualified for Promotion''')
+pdf.drawString(300,295,''': …………………………………………………………..''')
+
+pdf.drawString(24,270,'''11. Whether the student has paid all the fees to the''')
+pdf.drawString(24,255,'''    College''')
+pdf.drawString(300,255,''': …………………………………………………………..''')
+
+pdf.drawString(24,230,'''12. Whether the Student was in receipt of any''')
+pdf.drawString(24,215,'''    Scholarship (Nature of the scholarship to be''')
+pdf.drawString(24,200,'''    Specified) or Educational Concessions''')
+pdf.drawString(300,200,''': …………………………………………………………..''')
+
+pdf.drawString(24,175,'''13. Date on which the Student actually left the''')
+pdf.drawString(24,150,'''    College''')
+pdf.drawString(300,150,''': …………………………………………………………..''')
+
+pdf.drawString(24,125,'''14. The Student’s Conduct and Character''')
+pdf.drawString(300,125,''': …………………………………………………………..''')
+
+pdf.drawString(24,100,'''15. Date on which for Transfer Certificate was ''')
+pdf.drawString(24,85,'''    made on behalf the Student by the parent or''')
+pdf.drawString(24,70,'''    guardian''')
+pdf.drawString(300,70,''': …………………………………………………………..''')
 
 
 
